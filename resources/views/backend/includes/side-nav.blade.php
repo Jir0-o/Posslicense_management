@@ -42,102 +42,19 @@
                         <div data-i18n="Dashboard">Dashboard</div>
                     </a>
                 </li>
-                <!-- Layouts -->
+
                 <li class="menu-header small text-uppercase">
-                    <span class="menu-header-text">Manage Task Section</span>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-task"></i>
-                        <div data-i18n="Layouts">Manage Task Details</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without menu">Manage Work Plan</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without menu">Assign Task</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Container">Project Details</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-calendar-check"></i>
-                        <div data-i18n="Layouts">Task & Plan Manage</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without navbar">Work Plan</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without navbar">Task Details</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-header small text-uppercase">
-                    <span class="menu-header-text">Login Details Section</span>
+                    <span class="menu-header-text">license Section</span>
                 </li>
                  <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-user-check"></i>
-                        <div data-i18n="Layouts">Login Details</div>
+                        <div data-i18n="Layouts">License</div>
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without menu">User Login Details</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-header small text-uppercase">
-                    <span class="menu-header-text">Report & Other Section</span>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
-                        <div data-i18n="Layouts">Other Tabs</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without menu">Notice Board</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without navbar">Application</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-bar-chart"></i>
-                        <div data-i18n="Layouts">Report Section</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Container">View Report</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="Without navbar">Login Report</div>
+                            <a href="{{route('licenses.index')}}" class="menu-link">
+                                <div data-i18n="Without menu">Shop License</div>
                             </a>
                         </li>
                     </ul>

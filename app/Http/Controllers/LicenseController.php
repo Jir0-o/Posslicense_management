@@ -12,7 +12,7 @@ class LicenseController extends Controller
     public function index()
     {
         $licenses = License::latest()->paginate(20);
-        return view('licenses.index', compact('licenses'));
+        return view('backend.license.index', compact('licenses'));
     }
 
     public function store(Request $request)
@@ -70,7 +70,6 @@ class LicenseController extends Controller
     // Place this method in a controller exposed from routes/api.php
     public function apiGet(Request $request, $identifier)
     {
-        // Accept numeric id or serial string
         $license = is_numeric($identifier)
             ? License::find($identifier)
             : License::where('serial', $identifier)->first();
@@ -79,6 +78,14 @@ class LicenseController extends Controller
             return response()->json(['ok' => false, 'message' => 'License not found'], 404);
         }
 
-        return response()->json(['ok' => true, 'data' => $license->toApiArray()]);
+        // Minimal response per your request
+        return response()->json([
+            'ok' => true,
+            'data' => [
+                'is_lifetime' => (bool) $license->is_lifetime,
+                'expires_at'  => $license->expires_at ? $license->expires_at->toDateTimeString() : null,
+                'valid'       => $license->isValid(),
+            ],
+        ]);
     }
 }
