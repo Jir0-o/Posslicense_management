@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('users:logout')->dailyAt('00:00');
+        $schedule->command('licenses:check')->dailyAt('08:00');
     }
 
     /**
