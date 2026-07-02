@@ -68,6 +68,17 @@ Route::middleware([
         Route::get('/licenses/{license}', [LicenseController::class, 'show'])->name('licenses.show');
         Route::put('/licenses/{license}', [LicenseController::class, 'update'])->name('licenses.update');
         Route::delete('/licenses/{license}', [LicenseController::class, 'destroy'])->name('licenses.destroy');
+        Route::get('/dashboard/licenses/{license}/devices', [LicenseController::class, 'devices'])
+            ->name('licenses.devices');
+
+        Route::post('/dashboard/license-devices/{device}/approve', [LicenseController::class, 'approveDevice'])
+            ->name('license-devices.approve');
+
+        Route::post('/dashboard/license-devices/{device}/reject', [LicenseController::class, 'rejectDevice'])
+            ->name('license-devices.reject');
+
+        Route::post('/dashboard/license-devices/{device}/block', [LicenseController::class, 'blockDevice'])
+            ->name('license-devices.block');
     });
 
     

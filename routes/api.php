@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/license/{identifier}', [LicenseController::class, 'apiGet']);
 
+Route::get('/license/{identifier}/devices/allowed', [LicenseController::class, 'allowedDevices']);
+Route::post('/license/{identifier}/devices/request', [LicenseController::class, 'requestDevice']);
+
 Route::group(['prefix'=>'auth'], function(){
     Route::post('/register', [SanctumAuthController::class, 'store']);
     Route::post('/login', [SanctumAuthController::class, 'login']);

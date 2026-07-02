@@ -8,7 +8,7 @@ use Carbon\Carbon;
 class License extends Model
 {
     protected $fillable = [
-        'name', 'notes', 'is_lifetime', 'expires_at', 'serial'
+        'name', 'notes', 'is_lifetime', 'expires_at', 'serial','max_devices',
     ];
 
     protected $casts = [
@@ -35,5 +35,16 @@ class License extends Model
             'expires_at' => $this->expires_at ? $this->expires_at->toDateTimeString() : null,
             'valid' => $this->isValid(),
         ];
+    }
+
+    public function devices()
+    {
+        return $this->hasMany(\App\Models\LicenseDevice::class);
+    }
+
+    public function approvedDevices()
+    {
+        return $this->hasMany(\App\Models\LicenseDevice::class)
+            ->where('status', 'approved');
     }
 }
