@@ -18,12 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/license/{identifier}', [LicenseController::class, 'apiGet']);
 
-Route::get('/license/{identifier}/devices/allowed', [LicenseController::class, 'allowedDevices']);
-Route::post('/license/{identifier}/devices/request', [LicenseController::class, 'requestDevice']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/license/{identifier}/devices/allowed', [LicenseController::class, 'allowedDevices']);
+    Route::post('/license/{identifier}/devices/request', [LicenseController::class, 'requestDevice']);
+});
 
-Route::group(['prefix'=>'auth'], function(){
-    Route::post('/register', [SanctumAuthController::class, 'store']);
-    Route::post('/login', [SanctumAuthController::class, 'login']);
+Route::group(['prefix' => 'auth'], function () {
+    // Existing users may sign in to obtain a Bearer token. Registration is no
+    // longer anonymous; otherwise anyone could create an API user and reach
+    // the protected license-device endpoints.
+    Route::post('/register', [SanctumAuthController::class, 'store'])->middleware('auth:sanctum');
+    Route::post('/login', [SanctumAuthController::class, 'login'])->middleware('throttle:license-login');
     Route::post('/logout', [SanctumAuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
